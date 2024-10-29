@@ -1,29 +1,23 @@
 import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans
-
 from KellMeans import KellMeans
 
+x = []
+y = []
 
-def printKMInfo(km_model):
-    print("\nCENTROIDS")
-    for centroid in km_model.centroids:
-        print(centroid)
-    print("\nDATA")
-    print(data)
-    print("\nLABELS")
-    print(km_model.labels)
-
-
-# Create data
-x = [4, 5, 10, 4, 3, 11, 14, 6, 10, 12]
-y = [21, 19, 24, 17, 16, 25, 24, 22, 21, 21]
+# Read data
+file = open("clustering_data.csv", "r")
+lines = file.readlines()
+file.close()
+for line in lines:
+    if line.__contains__("."):
+        x.append(float(line.split(",")[0]))
+        y.append(float(line.split(",")[1]))
 data = list(zip(x, y))
+
 
 km = KellMeans()
 km.fitData(data)
-kmeans = KMeans(n_clusters=2)
-kmeans.fit(data)
 
-printKMInfo(km)
+km.display()
 plt.scatter(x, y, c=km.labels)
 plt.show()
