@@ -28,7 +28,7 @@ timeline for this.
 
 ## Breakdown of process
 1. Creates 1 centroid randomly in the data boundaries.
-2. Runs the K-Means algorithm until centroid/s converge.
+2. Runs the K-Means algorithm until the centroid/s converge.
 3. Checks each centroid for imbalances in data distribution along each axis such as multiple peaks, indicating there are two clusters in one centroid.
 4. If any imbalances are found it creates a new centroid shifted slightly from its position and goes back to step 2, else it finishes.
 
